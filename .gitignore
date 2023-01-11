@@ -3,3 +3,6 @@ __pycache__
 venv
 # Ignore the environment variables
 .env
+
+# Local development database
+app.db
