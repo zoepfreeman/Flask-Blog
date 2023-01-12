@@ -4,21 +4,11 @@
 
 {% block content %}
 
-    <h1>Hello {{ name }} from the index template</h1>
-    <h4>{{ 10 + 5 }}</h4>
+{% if current_user.is_authenticated %}
+    <h1 class="text-center">Welcome Back, {{ current_user.username }}!</h1>
+{% else %}
+    <h1 class="text-center">Hello World</h1>
+{% endif %}
 
-    {{ fruits }}
-
-    I love {{ fruits[0] }}!
-    <h4>My favorite fruits are:</h4>
-    <ul>
-        {% for f in fruits %} 
-        {% if f[-1] == 'y' %}
-        <li>{{ f.upper() }}</li>
-        {% else %}
-        <li>{{ f.lower() }}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
 
 {% endblock %}
