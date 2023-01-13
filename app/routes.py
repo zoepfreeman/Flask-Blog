@@ -9,10 +9,6 @@ def index():
     posts = Post.query.all()
     return render_template('index.html', posts=posts)
 
-@app.route('/posts')
-def posts():
-    return 'These are the posts!'
-
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
     # Create an instance of the SignUpForm
