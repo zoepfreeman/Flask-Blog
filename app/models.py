@@ -43,3 +43,14 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"<Post {self.id} | {self.title}>"
+
+    # Update method for the Post object
+    def update(self, **kwargs):
+        # for each key value that comes in as a keyword
+        for key, value in kwargs.items():
+            # if the key is an acceptable
+            if key in {'title', 'body'}:
+                # Set that attribute on the instance e.g post.title = 'Updated Title'
+                setattr(self, key, value)
+        # Save the updates to the database
+        db.session.commit()
